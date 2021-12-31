@@ -1,0 +1,52 @@
+<template>
+
+  <require from="./selectform/selectform"></require>
+  <nav class="border fixed split-nav">
+    <div class="nav-brand">
+      <h3><a href="#">Quotodian - A Quote for Everyone</a></h3>
+    </div>
+    <div class="collapsible">
+      <input id="collapsible1" type="checkbox" name="collapsible1">
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+      <div class="collapsible-body">
+        <ul class="inline">
+          <li>
+            <div class="row flex-spaces">
+              <label class="paper-btn" for="modal-2">About</label>
+            </div>
+            <input class="modal-state" id="modal-2" type="checkbox">
+            <div class="modal">
+              <label class="modal-bg" for="modal-2"></label>
+              <div class="modal-body">
+                  <label class="btn-close" for="modal-2">X</label>
+                  <h4 class="modal-title">Quotodian System Architecture</h4>
+                  <h5 class="modal-subtitle">A Quote for Everyone</h5>
+                  <img src="../static/quotodian-architecture.png" alt="Image Should have been here">
+                  <br/><hr>
+                  <p class="modal-text">The overarching aims of Quotodian is to provide a consolidated platform for browsing through quotes.
+                    It fetches random quotes on a wide variety of topics like Programming, Design, Philosophy etc.
+                    The backend has been developed in <b> Golang </b> and the front-end uses <b> Aurelia JS </b> framework, along with <b> PaperCSS </b>
+                    There is also a tab dedicated for fun which contains tweets of <b> Donald Trump, Taylor Swift </b> and <b> Kanye West </b>
+                  </p>
+                  <label for="modal-2" class="modal-link">Close</label>
+              </div>
+            </div>
+          </li>
+          <li><a href="//git.corp.adobe.com/rupachak/Quotodian" target="_blank">Github</a></li>
+          <li repeat.for = "row of router.navigation">
+              <a href.bind = "row.href"> ${row.title} </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <br/> <br/> <br/> <br/>
+  <div class="row flex-spaces child-borders" style="height: 4rem;">
+
+  </div>
+  <router-view></router-view>
+</template>

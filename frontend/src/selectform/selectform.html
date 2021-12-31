@@ -1,0 +1,38 @@
+<template>
+
+<div class="row flex-center">
+  <div class="form-group">
+    <label for="quoteSourceSelect">Please Choose a Quotes Source</label>
+    <select id="quoteSourceSelect" value.bind="selectQuoteSource">
+       <option repeat.for="quoteSource of quoteOptions"  value="${quoteSource.id}"  model.bind="quoteSource.id">
+         ${quoteSource.name}
+      </option>
+    </select>
+  </div>
+</div>
+
+<div class="col sm-8 row flex-center">
+  <button click.trigger="getQuotesData()" class="btn-secondary-outline">Get Me Quotes</button>
+</div>
+
+  <div class="card row flex-center" style="width: 40rem;border-color: #e6a5a1;" css="display: ${cardDisplay}">
+  <div class="card-body">
+    <h4 class="card-title">${selectQuoteSource}</h4>
+    <h5 class="card-subtitle">Specially Curated for you</h5>
+    <p class="card-text">${fetchedQuote}</p>
+  </div>
+</div>
+
+<div class="row flex-center">
+  <div class="card" css="display: ${sentimentDisplay}" style="display:inline; width: 20rem;" repeat.for="sentiment of sentimentOptions">
+    <div class="card-body">
+      <h4 class="card-title">${sentiment.title}</h4>
+      <h5 class="card-subtitle">${sentiment.subtitle}</h5>
+      <div class="progress margin-bottom">
+        <div class="bar ${sentiment.bartype} w-${sentiment.weight}">${sentiment.weight}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</template>

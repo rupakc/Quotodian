@@ -1,0 +1,24 @@
+<template>
+<div class="row flex-center">
+  <div class="form-group">
+    <label for="quoteSourceSelect">Please Choose a Quotes Source</label>
+    <select id="quoteSourceSelect" value.bind="selectQuoteSource">
+       <option repeat.for="quoteSource of quoteOptions"  value="${quoteSource.id}"  model.bind="quoteSource.id">
+         ${quoteSource.name}
+      </option>
+    </select>
+  </div>
+</div>
+
+<div class="col sm-8 row flex-center">
+  <button click.trigger="getFunQuotesData()" class="btn-secondary-outline">Get Me Some Fun </button>
+</div>
+
+  <div class="card row flex-center" style="width: 40rem;border-color: #e6a5a1;" css="display: ${cardDisplay}">
+  <div class="card-body">
+    <h4 class="card-title">${selectQuoteSource}</h4>
+    <h5 class="card-subtitle">Specially Curated for you</h5>
+    <p class="card-text">${fetchedQuote}</p>
+  </div>
+</div>
+</template>
